@@ -1,0 +1,285 @@
+/* BlackHole AI - Deep Space & Gravitational Phenomenon Theme */
+
+/* Import Futuristic Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-space: #030305;
+  --bg-surface: #0a0a14;
+  --bg-card: rgba(14, 14, 26, 0.75);
+  --bg-card-hover: rgba(22, 22, 40, 0.85);
+  --border-subtle: rgba(139, 92, 246, 0.18);
+  --border-glow: rgba(168, 85, 247, 0.45);
+  --accent-purple: #9333ea;
+  --accent-violet: #8b5cf6;
+  --accent-cyan: #38bdf8;
+  --accent-pink: #ec4899;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --grad-bh: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15) 0%, rgba(56, 189, 248, 0.05) 35%, rgba(3, 3, 5, 0.98) 75%);
+}
+
+/* Global App Styling */
+.stApp {
+  background-color: var(--bg-space) !important;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 58, 237, 0.25), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 85% 10%, rgba(56, 189, 248, 0.12), transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(147, 51, 234, 0.1), transparent 50%),
+    linear-gradient(to bottom, #030305, #07070f, #030305) !important;
+  background-attachment: fixed !important;
+  color: var(--text-main) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* Main Container Max Width & Padding - widened for massive clarity */
+.main .block-container {
+  max-width: 1250px;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif !important;
+  color: var(--text-main) !important;
+  letter-spacing: -0.02em;
+}
+
+p, span, label, div {
+  color: var(--text-main);
+}
+
+/* Cosmic Gradient Text */
+.bh-glow-text {
+  background: linear-gradient(135deg, #ffffff 0%, #c084fc 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.bh-sub-text {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Glassmorphism Cards */
+.bh-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.bh-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.4), transparent);
+}
+
+.bh-card:hover {
+  border-color: var(--border-glow);
+  box-shadow: 0 12px 40px -10px rgba(147, 51, 234, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Metric / Stat Card */
+.bh-stat-card {
+  background: linear-gradient(145deg, rgba(18, 18, 34, 0.8), rgba(10, 10, 20, 0.95));
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 14px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.bh-stat-card:hover {
+  border-color: var(--accent-violet);
+  transform: translateY(-3px);
+}
+
+.bh-stat-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 30%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.bh-stat-lbl {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.25rem;
+}
+
+/* Custom Input and Select Box Styling */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stSelectbox > div > div {
+  background-color: rgba(12, 12, 22, 0.85) !important;
+  color: #f8fafc !important;
+  border: 1.5px solid rgba(139, 92, 246, 0.3) !important;
+  border-radius: 12px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.65 !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Specifically style the active generated textarea for ultra clear readability */
+div[data-testid="stTextArea"] textarea {
+  font-size: 1.1rem !important;
+  line-height: 1.7 !important;
+  color: #ffffff !important;
+  background-color: rgba(10, 10, 20, 0.95) !important;
+  padding: 1.25rem !important;
+  letter-spacing: 0.01em !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+  border-color: #a855f7 !important;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.25) !important;
+}
+
+/* Streamlit Button Styling */
+div.stButton > button {
+  background: linear-gradient(135deg, #7c3aed 0%, #9333ea 50%, #6366f1 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 0.65rem 1.4rem !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35) !important;
+  transition: all 0.25s ease !important;
+}
+
+div.stButton > button:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #4f46e5 100%) !important;
+  box-shadow: 0 6px 28px rgba(147, 51, 234, 0.55) !important;
+  transform: translateY(-2px) !important;
+}
+
+div.stButton > button:active {
+  transform: translateY(0) !important;
+}
+
+/* Secondary Button Style */
+div.stButton > button[kind="secondary"] {
+  background: rgba(18, 18, 32, 0.8) !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(139, 92, 246, 0.3) !important;
+  box-shadow: none !important;
+}
+
+div.stButton > button[kind="secondary"]:hover {
+  background: rgba(30, 30, 52, 0.9) !important;
+  border-color: rgba(168, 85, 247, 0.6) !important;
+  color: #ffffff !important;
+}
+
+/* Sidebar Customization */
+[data-testid="stSidebar"] {
+  background: #06060c !important;
+  border-right: 1px solid rgba(139, 92, 246, 0.15) !important;
+}
+
+[data-testid="stSidebarNav"] {
+  padding-top: 1rem;
+}
+
+/* Badge styling */
+.bh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(147, 51, 234, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #d8b4fe;
+}
+
+.bh-badge-cyan {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #7dd3fc;
+}
+
+.bh-badge-green {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #86efac;
+}
+
+/* Live Character Counter */
+.bh-counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.bh-counter-safe {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+}
+
+.bh-counter-danger {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+/* Black Hole Event Horizon Visual Animation */
+.bh-horizon-circle {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, #020204 45%, #180828 70%, #7e22ce 90%, #38bdf8 100%);
+  position: relative;
+  box-shadow: 
+    0 0 35px 8px rgba(147, 51, 234, 0.45),
+    0 0 70px 18px rgba(56, 189, 248, 0.2),
+    inset 0 0 25px #020204;
+  animation: bh-pulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes bh-pulse {
+  0% {
+    box-shadow: 0 0 30px 6px rgba(147, 51, 234, 0.4), 0 0 60px 15px rgba(56, 189, 248, 0.2), inset 0 0 20px #020204;
+    transform: scale(0.98);
+  }
+  100% {
+    box-shadow: 0 0 45px 12px rgba(147, 51, 234, 0.6), 0 0 85px 24px rgba(56, 189, 248, 0.3), inset 0 0 30px #020204;
+    transform: scale(1.02);
+  }
+}
